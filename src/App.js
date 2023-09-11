@@ -1,94 +1,42 @@
-import React from 'react'
 import Table from 'react-bootstrap/Table';
-
 import './App.css';
-// import {SwimWearData} from '../Data';
-// import Cart from './Cart';
-
+import { useState, useEffect } from 'react';
 const App = () => {
+  const [data, setData] = useState();
+  const apiUrl = "https://api.coincap.io/v2/assets"
+  useEffect(() => {
+     fetch(apiUrl)
+      .then(response => response.json())
+      .then(result => setData(result.data))
+  }, []);
+  data && console.log(data)
   return (
     <div>
-
-    <Table className='mainTable' >
-      <thead>
-        <tr>
-          {/* th is header--table heading*/}
-          <th># RANK</th>
-          <th> Name</th>
-          <th>Price</th>
-          <th>Exchange/USD</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@fat</td>
-        </tr>
-        
-      </tbody>
-    </Table>
+      <Table className="mainTable">
+        <thead>
+          <tr>
+            {/* th is header--table heading*/}
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>MarketCap</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data && data.map((item)=>(
+          <tr>
+            <td>{item.rank}</td>
+            <td>{item.name}</td>
+            <td>${item.priceUsd}</td>
+            <td>{item.marketCapUsd}</td>
+          </tr>
+        ))}
+        </tbody>
+      </Table>
     </div>
   );
-}
+};
 
 export default App;
 
 
-
- 
