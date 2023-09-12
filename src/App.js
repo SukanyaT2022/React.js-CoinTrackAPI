@@ -12,7 +12,7 @@ const App = () => {
   data && console.log(data)
   return (
     <div>
-      <Table className="mainTable">
+     <Table className="mainTable">
         <thead>
           <tr>
             {/* th is header--table heading*/}
@@ -21,7 +21,7 @@ const App = () => {
             <th>Price</th>
             <th>MarketCap</th>
           </tr>
-        </thead>
+        </thead >
         <tbody>
           {data && data.map((item)=>(
           <tr>

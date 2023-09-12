@@ -1,19 +1,19 @@
-.mainTable{
-    width: 80%;
-    background-color: aqua;
-    margin: auto;
-    border-collapse: collapse;
-    text-align: center;
+.mainTable {
+  width: 80%;
+  background-color: aqua;
+  margin: auto;
+  border-collapse: collapse;
+  text-align: center;
 }
-.mainTable td{
-    padding: 20px 0px;
- 
-    border-top:3px solid black; ;
-    border-bottom: 3px solid black;;
+.mainTable td {
+  padding: 20px 0px;
+
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
-.mainTable th{
-    padding: 20px 0px;
+.mainTable th {
+  padding: 20px 0px;
 }
-.mainTable tr:hover{
-background-color: lightgray;
+.mainTable tr:hover {
+  background-color: lightgray;
 }
