@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
+import './Test.css';
 const Test = () => {
 //we use state to hold data from api so we can use map
     const [data,setData] = useState()
 //call api inside use effect
 useEffect(()=>{
-
+  const apiUrl = "https://api.coincap.io/v2/assets";
     //get 3 lines below from https://docs.coincap.io/#f8869879-171f-4240-adfd-dd2947506adc
     //top JavaScriptFetch-> RESTfulAPI -> Asset ->assetID -> example Request copy code
-    fetch("http://api.coincap.io/v2/assets")
+    fetch(apiUrl)
     .then(response => response.json())//get data convert to json
-    .then(result => setData(result.data))//next hold data and covert to something else
-},[])
-
-
+    .then(result => setData(result.data.slice(0,20)))//next hold data and covert to something else
+//slice line 14 use to slide only rang 1 to 20 / not show all
+  },[])
   return (
     <div>
      <Table className="mainTable">
@@ -27,7 +27,18 @@ useEffect(()=>{
           </tr>
         </thead >
         <tbody>
-
+          {/* Conditional Rendring */}
+          {data && data.map((val)=>(
+              <tr>
+                <td>{val.rank}</td>
+                <td>{val.name}</td>
+                <td>{parseFloat(val.priceUsd).toFixed(2)}</td>
+                {/* this parseFloat .toFixed(2) help with to show price at 2 decimal */}
+                {/* <td>{val.priceUsd.toFixed(2)}</td> */}
+              
+                <td>{parseFloat(val.marketCapUsd).toFixed(2)}</td>
+              </tr>
+          ))}
         </tbody>
         </Table>
     </div>
