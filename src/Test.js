@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import './Test.css';
+import { FaDove,FaBitcoin } from 'react-icons/fa';
 const Test = () => {
 //we use state to hold data from api so we can use map
     const [data,setData] = useState()
@@ -16,6 +17,9 @@ useEffect(()=>{
   },[])
   return (
     <div>
+      <div className='topNav'><FaDove className='birdIcon' />Buy,sell,swap your favourite assets.</div>
+      <div className='belowNav'><FaBitcoin className='birdLogo'/><h3>CyptoTrack</h3></div>
+      <div className='bigBlueBoxUnder'></div>
      <Table className="mainTable">
       <thead>
           <tr>
