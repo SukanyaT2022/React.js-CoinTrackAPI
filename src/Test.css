@@ -70,3 +70,11 @@ height: 300px;
 background:linear-gradient(to right,#001eeb,#4696ff) ;
 position: relative;
 }
+.danger{
+  color:red;
+  font-weight: bold;
+}
+.success{
+  color:green;
+  font-weight: bold;
+}

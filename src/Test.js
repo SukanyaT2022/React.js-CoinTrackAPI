@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import './Test.css';
 import { FaDove,FaBitcoin } from 'react-icons/fa';
+
 const Test = () => {
 //we use state to hold data from api so we can use map
     const [data,setData] = useState()
@@ -28,21 +29,25 @@ useEffect(()=>{
             <th>Name</th>
             <th>Price</th>
             <th>MarketCap</th>
+            <th>Change(24Hr)</th>
+      
           </tr>
         </thead >
         <tbody>
           {/* Conditional Rendring */}
-          {data && data.map((val)=>(
+          {data && data.map((val)=>{
+            const percent = parseFloat(val.changePercent24Hr).toFixed(2);
+            return(
               <tr>
                 <td>{val.rank}</td>
                 <td>{val.name}</td>
                 <td>{parseFloat(val.priceUsd).toFixed(2)}</td>
                 {/* this parseFloat .toFixed(2) help with to show price at 2 decimal */}
-                {/* <td>{val.priceUsd.toFixed(2)}</td> */}
-              
-                <td>{parseFloat(val.marketCapUsd).toFixed(2)}</td>
+                {/* <td>{val.priceUsd.toFixed(2)}</td> */}      
+                <td>{parseFloat(val.marketCapUsd).toFixed(2)}</td> 
+                <td className={percent>0?'success':'danger'}>{percent}%</td> 
               </tr>
-          ))}
+            )})}
         </tbody>
         </Table>
     </div>
@@ -50,4 +55,3 @@ useEffect(()=>{
 }
 
 export default Test
-//get link from api
