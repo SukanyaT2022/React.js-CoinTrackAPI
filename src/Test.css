@@ -11,22 +11,24 @@ html, body{
 
 .mainTable {
   width: 80%;
-  background-color: aqua;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: auto;
   border-collapse: collapse;
   text-align: center;
   position: relative;
-  top: -200px;
+  top: -220px;
   z-index: 2;
 }
+
 .mainTable td {
   padding: 20px 0px;
 
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 .mainTable th {
   padding: 20px 0px;
+  border-bottom: 1px solid grey;
 }
 .mainTable tr:hover {
   background-color: lightgray;
@@ -77,4 +79,34 @@ position: relative;
 .success{
   color:green;
   font-weight: bold;
+}
+.navbar{
+  position: relative;
+  z-index: 10;
+  padding:10px 40px;
+  background-color: white;
+  
+}
+/* change text color navbar */
+.nav-link{
+  color: black;
+}
+
+
+/* phone */
+@media screen and (max-width:600px){
+  .mainTable th:nth-child(4){
+display: none;
+  }
+  .mainTable th:nth-child(5){
+    display: none;
+      }
+      .mainTable td:nth-child(4){
+        display: none;
+          }
+          .mainTable td:nth-child(5){
+            display: none;
+              }
+
+            
 }

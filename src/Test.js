@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import './Test.css';
 import { FaDove,FaBitcoin } from 'react-icons/fa';
+// import from react boostrap
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Test = () => {
 //we use state to hold data from api so we can use map
@@ -19,6 +26,37 @@ useEffect(()=>{
   return (
     <div>
       <div className='topNav'><FaDove className='birdIcon' />Buy,sell,swap your favourite assets.</div>
+
+
+      {/* //start navbar react boostarp */}
+      <nav className="navbar navbar-expand-lg ">
+  <div className="container-fluid">
+   
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Coin</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Exchange</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Swap</a>
+        </li>
+      </ul>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+{/* end navbar boostrap */}
+
       <div className='belowNav'><FaBitcoin className='birdLogo'/><h3>CyptoTrack</h3></div>
       <div className='bigBlueBoxUnder'></div>
      <Table className="mainTable">
