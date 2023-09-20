@@ -73,11 +73,11 @@ background:linear-gradient(to right,#001eeb,#4696ff) ;
 position: relative;
 }
 .danger{
-  color:red;
+  color:red!important;
   font-weight: bold;
 }
 .success{
-  color:green;
+  color:green!important;
   font-weight: bold;
 }
 .navbar{
